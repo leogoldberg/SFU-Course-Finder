@@ -1,0 +1,53 @@
+.test{ position:relative;
+        padding-left: 0px;
+}
+
+.right {
+     float:right;
+}
+.left {
+    list-style-type: none;
+  float:left;
+}
+
+.left ul {
+    padding: 0;
+    margin-left: 0px;
+}
+
+/* change the background color */
+.bg-company-red {
+    background-color: darkred;
+}
+
+.btn.btn-primary:hover,
+.btn.btn-primary:visited,
+.btn.btn-primary:focus,
+.btn.btn-primary:active,
+.btn.btn-primary.active {
+  color: #ffffff;
+  background-color: darkred;
+  border-color: darkred;
+}
+
+.btn.btn-primary {
+  color: #ffffff;
+  background-color: darkred;
+  border-color: darkred;
+}
+
+.btn.btn-lg.btn-secondary:hover,
+.btn.btn-lg.btn-secondary:visited,
+.btn.btn-lg.btn-secondary:focus,
+.btn.btn-lg.btn-secondary:active,
+.btn.btn-lg.btn-secondary.active {
+  color: #ffffff;
+  background-color: darkred;
+  border-color: darkred;
+}
+
+.btn.btn-lg.btn-secondary {
+  color: #ffffff;
+  background-color: darkred;
+  border-color: darkred;
+}

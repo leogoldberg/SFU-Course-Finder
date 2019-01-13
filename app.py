@@ -37,11 +37,13 @@ def schedules():
         conn = mysql.connection.cursor()
 
         result = conn.execute(
-            "SELECT * FROM schedules WHERE room = %s AND start_time<= %s AND end_time>= %s AND day = %s", [room, time, time, day])
+            "SELECT * FROM schedules WHERE room = %s AND day = %s ORDER BY start_time", [room, day])
 
-        courses = conn.fetchone()
+        courses = conn.fetchall()
+        # print(type(courses[1]))
         print(result)
         print(courses)
+
         # close Connection
         conn.close()
 
@@ -59,8 +61,8 @@ def schedules():
 class ScheduleForm(Form):
     room = StringField('Room', [validators.Length(min=4, max=30)])
     time = StringField('Time', [validators.Length(min=2, max=10)])
-    day = SelectField('Day', choices=[('Mo', 'Monday'), ('Tu', 'Tuesday'),
-                                      ('We', 'Wednesday'), ('Th', 'Thursday'), ('Fr', 'Friday')])
+    day = SelectField(u'Day', choices=[('Mo', 'Monday'), ('Tu', 'Tuesday'),
+                                       ('We', 'Wednesday'), ('Th', 'Thursday'), ('Fr', 'Friday')])
 
 
 if __name__ == '__main__':

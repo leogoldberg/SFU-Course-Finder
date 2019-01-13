@@ -1,38 +1,61 @@
 {% extends 'layout.html' %}
 
-{% block body %}
+<div class="container">
+
+    {% block body %}
     <h1 class="mt-3 mb-3">Room Schedule</h1>
 
     {% from "includes/_formhelpers.html" import render_field %}
+
     <form class="" action="" method="POST">
-        <div class="container mb-3">
+
+            <div class="col-sm-3">
 
             <div class="form-group">
-                {{render_field(form.room, class_="form_control")}}
+                {{render_field(form.room, class_="form-control")}}
             </div>
             <div class="form-group">
-                {{render_field(form.time, class_="form_control")}}
+                {{render_field(form.time, class_="form-control")}}
             </div>
+
             <div class="form-group">
-                {{render_field(form.day, class_="form_control")}}
+                {{render_field(form.day, class_="selectpicker form-control")}}
             </div>
-            <!-- <select class="form-control" name="day" style="width: 30%">
-                <option value="Mo">Monday</option>
-                <option value="Tu">Tuesday</option>
-                <option value="We">Wednesday</option>
-                <option value="Th">Thursday</option>
-                <option value="Fr">Friday</option>
-            </select> -->
+
+                <p><input type="submit" class="btn btn-primary mt-2 mb-2" value="Find"></p>
         </div>
 
-        <p><input type="submit" class="btn btn-primary" value="Find"></p>
 
+            <div class="test">
+
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Course</th>
+                            <th>Start Time</th>
+                            <th>End Time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for course in courses%}
+                        <tr>
+                            <td>{{course.course}}</td>
+                            <td>{{course.start_time}}</td>
+                            <td>{{course.end_time}}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <!-- <ul class="list-group">
+                            {% for course in courses%}
+                            <li class="list-group-item"><span>{{course.start_time}} </span>{{course.course}}</li>
+                            {% endfor %}
+                        </ul> -->
+            </div>
     </form>
-    <div class="container">
-        <ul class="list-group">
 
-            <li class="list-group-item">{{courses.course}}</li>
+    {% endblock %}
 
-        </ul>
-    </div>
-{% endblock %}
+
+</div>
