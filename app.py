@@ -48,12 +48,12 @@ def schedules():
         conn.close()
 
         if result > 0:
-            return render_template('schedules.html', form=form, courses=courses)
+            return render_template('schedules.html', form=form, courses=courses, time=time)
         else:
             msg = 'No such classes exist'
-            return render_template('schedules.html', form=form, courses="no class at this time!")
+            return render_template('schedules.html', form=form, courses="no class at this time!", time=time)
 
-    return render_template('schedules.html', form=form, courses="no class at this time!")
+    return render_template('schedules.html', form=form, courses="no class at this time!", time="no time")
 
 # Schedule Form Class
 
